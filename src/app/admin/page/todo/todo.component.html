@@ -1,0 +1,36 @@
+<div class="card border-primary">
+  <div class="card-body">
+    <div class="form">
+        <textarea [(ngModel)]="todoModel.title" class="form-control mb-3" name="" placeholder="Nội dung cần ghi chú"></textarea>
+        <div class="form-group mb-3">
+          <label for="">Ngày hết hạn</label>
+          <input  [(ngModel)]="todoModel.due_on" type="date" class="form-control">
+        </div>
+        <button *ngIf="isEdit==false" class="btn btn-primary" (click)="addNewTodo()">Thêm mới ghi chú</button>
+        <button *ngIf="isEdit==true" class="btn btn-info" (click)="updateTodo()">Cập nhật ghi chú</button>
+    </div>
+    <hr>
+    <table class="table table-striped table-inverse table-bordered">
+        <thead class="thead-inverse">
+            <tr>
+                <th style="width:50px" class="text-center">STT</th>
+                <th class="text-center">Nội dung</th>
+                <th style="width:100px" class="text-center">Hạn cuối</th>
+                <th style="width:190px"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data; let i = index" [ngClass]="{'deadline': checkDeadline(item)}" appHightlight>
+                    <td  class="text-center" scope="row">{{i+1}}</td>
+                    <td>{{item.title}}</td>
+                    <td  class="text-center">{{item.due_on |date:"dd/MM/yyyy"}}</td>
+                    <td class="text-center">
+                        <button (click)="doRemoveTodo(item)"class="btn btn-success btn-sm me-2">|Xoá</button>
+                        <button *ngIf="item.status == 'complete'" class="btn btn-danger btn-sm">Hoàn thành</button>
+                        <button *ngIf="item.status == 'pending'" class="btn btn-info btn-sm" (click)="openUpdateTodo(item)">Cập nhật</button>
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+  </div>
+</div>

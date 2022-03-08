@@ -1,0 +1,50 @@
+<form [formGroup]="useForm" (ngSubmit)="onSubmit(useForm)">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Tên tài khoản</label> 
+                <input type="text" formControlName="username" class="form-control" placeholder="Nhap ten"/>
+                <div *ngIf="(useForm.get('fullname').dirty || isSubmitted) && useForm.get('fullname').errors?.required">
+                    <strong>Tên là phải nhập</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Mật khẩu</label> 
+                <input type="password" formControlName="password" class="form-control" placeholder="Nhap mat khau"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Tên người d</label> 
+                <input type="text" class="form-control" formControlName="fullname" placeholder="Nhap ten"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Ngày sinh</label> 
+                <input type="date" class="form-control" formControlName="birday" placeholder="Nhap ngày sinh"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Địa chỉ</label> 
+                <input type="text" class="form-control" formControlName="address" placeholder="Nhap địa chỉ"/>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" type="submit">Dang ki</button>
+        </div>
+    </div>
+</form>

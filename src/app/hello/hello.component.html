@@ -1,0 +1,16 @@
+<p>hello works!</p>
+
+<table class="border">
+    <tr class="border"> 
+        <td class="border">STT</td>
+        <td class="border">Ten</td>
+        <td class="border">Dia chi</td>
+        <td class="border">Tuoi</td>
+    </tr>
+    <tr *ngFor="let item of listHocSinh; let i = index" class="border">
+        <td class="border">{{i+1}}</td>
+        <td class="border">{{item.name}}</td>
+        <td class="border">{{item.address}}</td>
+        <td class="border">{{item.age}}</td>
+    </tr>
+</table>
